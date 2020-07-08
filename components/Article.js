@@ -87,7 +87,7 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   },
   {
-    title: 'Taco Eating Winner of the Milennia!',
+    title: 'The Sacred Food',
     date: 'August 21, 2020',
     firstParagraph: 'Tacos are really good, I stand with all taco activists and no one hurt this sacred food. We must protect it at all costs. Because the new taco-burrito is coming to taco bell trying to make burritos the more main stream item! Even though burritos are good but cant we live together in harmony.',
     secondParagraph: 'Everything changed when the Burritos attacked... they took our tacos left and right and I dont know why I am typing this anymore. Im running out of things to say. I should probably never write a script for a tv show because this is terrible. OR maybe its genius and I am just now realizing my talent at work',
@@ -141,7 +141,7 @@ function articleMaker(articleDataObj){
   article.classList.add('article');
   theDate.classList.add('date')
   button.classList.add('expandButton')
-  console.log(article)
+  // console.log(article)
 
   // create the text content
   theTitle.textContent = articleDataObj.title
@@ -160,8 +160,6 @@ function articleMaker(articleDataObj){
 
   return article
 }
- console.log(articleMaker(data));
-// articleMaker(data);
 
 data.forEach(object => {
   const theRealArticles = articleMaker(object)
