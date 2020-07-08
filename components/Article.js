@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'The Sacred Food',
+    date: 'August 21, 2020',
+    firstParagraph: 'Tacos are really good, I stand with all taco activists and no one hurt this sacred food. We must protect it at all costs. Because the new taco-burrito is coming to taco bell trying to make burritos the more main stream item! Even though burritos are good but cant we live together in harmony.',
+    secondParagraph: 'Everything changed when the Burritos attacked... they took our tacos left and right and I dont know why I am typing this anymore. Im running out of things to say. I should probably never write a script for a tv show because this is terrible. OR maybe its genius and I am just now realizing my talent at work',
+    thirdParagraph: 'I like the idea. Maybe I am great at coming up with stories. It could be called the taco wars.. or uh tacos the last guacamole benders? no that makes no sense at all. Lets just keep on going disregard everything from here on out. Okay maybe you should forget the things before as well.'
   }
 ];
 
@@ -111,3 +118,51 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+const articlesParent = document.querySelector('.articles')
+
+function articleMaker(articleDataObj){
+  // creating the elements
+  const article = document.createElement('div');
+  const theTitle = document.createElement('h2')
+  const theDate = document.createElement('p')
+  const firstPar = document.createElement('p')
+  const secPar = document.createElement('p')
+  const thirdPar = document.createElement('p')
+  const button = document.createElement('span')
+
+  // time to create the structure
+  article.appendChild(theTitle)
+  article.appendChild(theDate)
+  article.appendChild(firstPar)
+  article.appendChild(secPar)
+  article.appendChild(thirdPar)
+  article.appendChild(button)
+// console.log(article)
+  article.classList.add('article');
+  theDate.classList.add('date')
+  button.classList.add('expandButton')
+  // console.log(article)
+
+  // create the text content
+  theTitle.textContent = articleDataObj.title
+  theDate.textContent = articleDataObj.date
+  firstPar.textContent = articleDataObj.firstParagraph
+  secPar.textContent = articleDataObj.secondParagraph
+  thirdPar.textContent = articleDataObj.thirdParagraph 
+  button.textContent = '+'
+  
+  // creating the event for the expand button
+  button.addEventListener('click', () =>{
+    article.classList.toggle('article-open')
+
+
+  })
+
+  return article
+}
+
+data.forEach(object => {
+  const theRealArticles = articleMaker(object)
+  articlesParent.appendChild(theRealArticles)
+})
+
